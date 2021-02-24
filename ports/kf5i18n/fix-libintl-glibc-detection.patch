@@ -1,6 +1,6 @@
 diff -Nur a/cmake/FindLibIntl.cmake b/cmake/FindLibIntl.cmake
---- a/cmake/FindLibIntl.cmake	2021-02-24 12:48:23.248149043 +0100
-+++ b/cmake/FindLibIntl.cmake	2021-02-24 12:48:38.211982385 +0100
+--- a/cmake/FindLibIntl.cmake	2021-02-24 15:07:08.189785521 +0100
++++ b/cmake/FindLibIntl.cmake	2021-02-24 15:07:19.273450510 +0100
 @@ -29,7 +29,7 @@
  include(FindPackageHandleStandardArgs)
  if(LibIntl_SYMBOL_FOUND)
@@ -10,3 +10,22 @@ diff -Nur a/cmake/FindLibIntl.cmake b/cmake/FindLibIntl.cmake
      if(LibIntl_INCLUDE_DIRS)
          find_package_handle_standard_args(LibIntl REQUIRED_VARS LibIntl_INCLUDE_DIRS)
      else()
+diff -Nur a/src/CMakeLists.txt b/src/CMakeLists.txt
+--- a/src/CMakeLists.txt	2021-02-24 15:07:08.197785279 +0100
++++ b/src/CMakeLists.txt	2021-02-24 15:07:19.281450269 +0100
+@@ -41,8 +41,13 @@
+ target_include_directories(KF5I18n PRIVATE ${LibIntl_INCLUDE_DIRS})
+ 
+ target_link_libraries(KF5I18n PUBLIC Qt5::Core)
+-# This is only required for platforms which don't use glibc (with glibc LibIntl_LIBRARIES will be empty)
+-target_link_libraries(KF5I18n PRIVATE ${LibIntl_LIBRARIES})
++# This is only required for platforms which don't use glibc.
++# With glibc LibIntl_LIBRARIES will be a string with one whitespace.
++# This is necessary as an empty string will be rejected by cmake when
++# transitioning from the configure to the compile step.
++if (NOT "${LibIntl_LIBRARIES}x" STREQUAL " x")
++	target_link_libraries(KF5I18n PRIVATE ${LibIntl_LIBRARIES})
++endif()
+ target_compile_options(KF5I18n PRIVATE -DTRANSLATION_DOMAIN=\"ki18n5\")
+ 
+ set_target_properties(KF5I18n PROPERTIES VERSION   ${KI18N_VERSION_STRING}
