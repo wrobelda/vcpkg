@@ -1,0 +1,12 @@
+diff -Nur a/cmake/FindLibIntl.cmake b/cmake/FindLibIntl.cmake
+--- a/cmake/FindLibIntl.cmake	2021-02-24 12:48:23.248149043 +0100
++++ b/cmake/FindLibIntl.cmake	2021-02-24 12:48:38.211982385 +0100
+@@ -29,7 +29,7 @@
+ include(FindPackageHandleStandardArgs)
+ if(LibIntl_SYMBOL_FOUND)
+     message(STATUS "libintl is part of libc, no extra library is required.")
+-    set(LibIntl_LIBRARIES "")
++    set(LibIntl_LIBRARIES " ")
+     if(LibIntl_INCLUDE_DIRS)
+         find_package_handle_standard_args(LibIntl REQUIRED_VARS LibIntl_INCLUDE_DIRS)
+     else()
