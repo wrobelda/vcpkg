@@ -6,6 +6,7 @@ vcpkg_from_github(
     HEAD_REF master
     PATCHES 
         "add-missing-kf5guiaddons-kf5archive-deps.patch"
+        "add-missing-x11extras-find.patch"
 )
 
 vcpkg_find_acquire_program(GETTEXT_MSGMERGE)
