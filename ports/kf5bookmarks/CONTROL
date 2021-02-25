@@ -2,4 +2,4 @@ Source: kf5bookmarks
 Version: 5.75.0
 Homepage: https://api.kde.org/frameworks/kbookmarks/html/index.html
 Description: Bookmarks management library
-Build-Depends: ecm, qt5-base, qt5-tools, kf5config, kf5coreaddons, kf5codecs, kf5configwidgets, kf5widgetsaddons, kf5xmlgui, kf5guiaddons
+Build-Depends: ecm, qt5-base, qt5-tools, qt5-x11extras (linux), kf5attica, kf5config, kf5coreaddons, kf5codecs, kf5configwidgets, kf5widgetsaddons, kf5xmlgui, kf5guiaddons
