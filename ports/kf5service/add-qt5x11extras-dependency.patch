@@ -1,0 +1,13 @@
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2021-02-25 11:21:14.555303520 +0100
++++ b/CMakeLists.txt	2021-02-25 11:18:56.006411918 +0100
+@@ -46,6 +46,9 @@
+ if (NOT ANDROID)
+   find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+ endif()
++if (UNIX AND NOT APPLE)
++  find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
++endif()
+ 
+ find_package(KF5Config ${KF5_DEP_VERSION} CONFIG REQUIRED)
+ find_package(KF5CoreAddons ${KF5_DEP_VERSION} CONFIG REQUIRED)
