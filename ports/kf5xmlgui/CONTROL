@@ -2,4 +2,4 @@ Source: kf5xmlgui
 Version: 5.75.0
 Homepage: https://api.kde.org/frameworks/kxmlgui/html/index.html
 Description: Framework for managing menu and toolbar actions
-Build-Depends: ecm, qt5-base, qt5-tools, qt5-x11extras, kf5coreaddons, kf5itemviews, kf5config, kf5configwidgets, kf5i18n, kf5iconthemes, kf5widgetsaddons, kf5windowsystem, kf5guiaddons, kf5archive, kf5attica
+Build-Depends: ecm, qt5-base, qt5-tools, qt5-x11extras (linux), kf5coreaddons, kf5itemviews, kf5config, kf5configwidgets, kf5i18n, kf5iconthemes, kf5widgetsaddons, kf5windowsystem, kf5guiaddons, kf5archive, kf5attica
