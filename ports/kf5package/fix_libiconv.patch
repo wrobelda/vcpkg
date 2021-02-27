@@ -1,23 +1,25 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4fa85aa..7dccdb4 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2020-10-04 20:51:18.000000000 +0200
++++ b/CMakeLists.txt	2021-02-25 11:48:29.431748653 +0100
 @@ -1,4 +1,4 @@
 -cmake_minimum_required(VERSION 3.5)
 +cmake_minimum_required(VERSION 3.11)
  
  set(KF5_VERSION "5.75.0") # handled by release scripts
  set(KF5_DEP_VERSION "5.75.0") # handled by release scripts
-@@ -10,6 +10,13 @@ find_package(ECM 5.75.0  NO_MODULE)
+@@ -10,6 +10,16 @@
  set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
  feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
  
 +if(APPLE)
 +  find_library(LIBINTL_LIBRARY NAMES intl)
-+endif()
 +
-+find_package(unofficial-iconv REQUIRED)
-+link_libraries(${LIBINTL_LIBRARY} unofficial::iconv::libiconv)
++  find_package(Iconv REQUIRED)
++
++  if(NOT Iconv_IS_BUILT_IN)
++    link_libraries(${LIBINTL_LIBRARY} Iconv::Iconv)
++  endif()
++endif()
 +
  set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
  

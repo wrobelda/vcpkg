@@ -5,7 +5,8 @@ vcpkg_from_github(
     SHA512 bdef2d6d2ac999936498e44cd2d4cc23b3187373da145073797c3d5c6e8fa3ff26c4d61fa3b233338ac104143fff1e0b6498f68e7c0da1cd886c2f2b33d4d353
     HEAD_REF master
     PATCHES
-        "add-missing-kf5windowsystem-dependency.patch"
+        "add-kf5windowsystem-dependency.patch"
+        "add-qt5x11extras-dependency.patch"
 )
 
 if (VCPKG_TARGET_IS_OSX)

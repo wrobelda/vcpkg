@@ -6,6 +6,10 @@ vcpkg_from_github(
     HEAD_REF master
 )
 
+if(VCPKG_TARGET_IS_LINUX)
+    message("${PORT} currently requires the following system packages:\n    bison\n    flex\n    libudev\n\nThese can be installed on Ubuntu systems via apt-get install bison flex libudev-dev")
+endif()
+
 if (VCPKG_TARGET_IS_OSX)
     message(WARNING "${PORT} requires bison version greater than one provided by macOS, please use \`brew install bison\` to install a newer bison.")
 endif()

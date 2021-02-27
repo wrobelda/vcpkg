@@ -1,0 +1,23 @@
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2020-10-04 20:42:17.000000000 +0200
++++ b/CMakeLists.txt	2021-02-27 13:04:39.534089375 +0100
+@@ -14,6 +14,10 @@
+ set(REQUIRED_QT_VERSION 5.12.0)
+ find_package(Qt5 "${REQUIRED_QT_VERSION}" CONFIG REQUIRED DBus Widgets)
+ 
++if (UNIX AND NOT APPLE)
++	find_package(Qt5 "${REQUIRED_QT_VERSION}" CONFIG REQUIRED X11Extras)
++endif()
++
+ include(KDEInstallDirs)
+ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+ include(KDECMakeSettings)
+@@ -24,6 +28,8 @@
+ find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
+ find_package(KF5DocTools ${KF5_DEP_VERSION})
+ find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
++find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
++find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+ 
+ 
+ include(CMakePackageConfigHelpers)

@@ -1,8 +1,22 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c40b0f2..1219074 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -49,6 +49,13 @@ find_package(KF5Codecs ${KF5_DEP_VERSION} REQUIRED)
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2021-02-25 13:04:19.564497440 +0100
++++ b/CMakeLists.txt	2021-02-25 13:06:11.394194713 +0100
+@@ -38,10 +38,13 @@
+ # Dependencies
+ set(REQUIRED_QT_VERSION 5.12.0)
+ 
+-find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Widgets Xml)
++find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED PrintSupport Widgets Xml)
+ if (NOT ANDROID)
+   find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED DBus)
+ endif()
++if (UNIX AND NOT APPLE)
++  find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED X11Extras)
++endif()
+ 
+ find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+ find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
+@@ -49,6 +52,14 @@
  find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
  find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
  find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
@@ -12,6 +26,7 @@ index c40b0f2..1219074 100644
 +find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 +find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 +find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
++find_package(KF5Attica ${KF5_DEP_VERSION} REQUIRED)
 +
  
  if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
