@@ -1,0 +1,5 @@
+Source: kded
+Version: 5.75.0
+Homepage: https://api.kde.org/frameworks/kded/html/index.html
+Description: Desktop task management service
+Build-Depends: ecm, qt5-base, qt5-tools, qt5-x11extras (linux), kf5i18n, kf5windowsystem
