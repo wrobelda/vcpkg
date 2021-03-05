@@ -2732,11 +2732,11 @@
       "baseline": "5.75.0",
       "port-version": 0
     },
-    "kf5codecs": {
+    "kf5auth": {
       "baseline": "5.75.0",
       "port-version": 0
     },
-    "kf5auth": {
+    "kf5codecs": {
       "baseline": "5.75.0",
       "port-version": 0
     },
@@ -2745,6 +2745,10 @@
       "port-version": 0
     },
     "kf5config": {
+      "baseline": "5.75.0",
+      "port-version": 0
+    },
+    "kf5configwidgets": {
       "baseline": "5.75.0",
       "port-version": 0
     },
