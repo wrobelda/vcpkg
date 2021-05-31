@@ -2850,7 +2850,7 @@
     },
     "kf5guiaddons": {
       "baseline": "5.81.0",
-      "port-version": 0
+      "port-version": 1
     },
     "kf5holidays": {
       "baseline": "5.81.0",
